@@ -16,7 +16,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Recipe Repository</h1>
       <div>
         {recipes.map(recipe => <RecipeCard key={recipe._id} recipe={recipe} />)}
       </div>

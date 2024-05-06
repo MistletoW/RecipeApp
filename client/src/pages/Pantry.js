@@ -15,7 +15,7 @@ const Pantry = () => {
 
   return (
     <div>
-      <h2>My Pantry</h2>
+      <h2 style={{ textAlign: 'center', color: 'navy', fontSize: '2em', padding: '20px', fontWeight: 'bold', textDecoration: 'underline' }}>My Pantry</h2>
       <ul>
         {pantryItems.map(item => <li key={item._id}>{item.name} ({item.quantity})</li>)}
       </ul>

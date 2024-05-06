@@ -19,10 +19,12 @@ const RecipeDetail = () => {
 
   return (
     <div>
-      <h2>{recipe.name}</h2>
+      <h2 style={{ fontSize: '3em', color: 'navy' }}>{recipe.name}</h2>
       <h3>Ingredients:</h3>
-      <ul>
-        {recipe.ingredients.map((ing, index) => <li key={index}>{ing.name}</li>)}
+      <ul style={{ listStyleType: 'circle' }}>
+        {recipe.ingredients.map((ing, index) => (
+          <li key={index} style={{ borderBottom: '1px dotted navy' }}>{ing.name}</li>
+        ))}
       </ul>
       <h3>Instructions:</h3>
       <p>{recipe.instructions}</p>
