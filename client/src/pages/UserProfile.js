@@ -17,8 +17,8 @@ const UserProfile = () => {
 
   return (
     <div>
-      <h2>{profile.username}</h2>
-      <h3>Saved Recipes</h3>
+      <h1 style={{ color: 'navy' }}>{profile.username}</h1>
+      <h2 style={{ color: 'navy' }}>Saved Recipes</h2>
       <ul>
         {profile.savedRecipes.map(recipe => <li key={recipe._id}>{recipe.name}</li>)}
       </ul>
