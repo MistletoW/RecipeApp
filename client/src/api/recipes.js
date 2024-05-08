@@ -1,40 +1,41 @@
-// client/src/api/recipes.js
-const API_URL = 'http://localhost:3000/api/recipes';
+const BASE_URL = 'http://localhost:3000/api/recipes';
 
-export const getRecipes = async () => {
-  const response = await fetch(API_URL);
+export const fetchRecipes = async () => {
+  const response = await fetch(BASE_URL);
   if (!response.ok) throw new Error('Failed to fetch recipes');
   return response.json();
 };
 
-export const getRecipeById = async (id) => {
-  const response = await fetch(`${API_URL}/${id}`);
+export const fetchRecipeById = async (id) => {
+  const response = await fetch(`${BASE_URL}/${id}`);
   if (!response.ok) throw new Error('Failed to fetch recipe');
   return response.json();
 };
 
-export const createRecipe = async (recipe) => {
-  const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(recipe),
+export const createRecipe = async (recipeData) => {
+  const response = await fetch(BASE_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(recipeData)
   });
   if (!response.ok) throw new Error('Failed to create recipe');
   return response.json();
 };
 
-export const updateRecipe = async (id, recipe) => {
-  const response = await fetch(`${API_URL}/${id}`, {
-      method: 'PUT',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(recipe),
+export const updateRecipe = async (id, recipeData) => {
+  const response = await fetch(`${BASE_URL}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(recipeData)
   });
   if (!response.ok) throw new Error('Failed to update recipe');
   return response.json();
 };
 
-// Add functions for creating, updating, and deleting recipes if needed
+export const deleteRecipe = async (id) => {
+  const response = await fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE'
+  });
+  if (!response.ok) throw new Error('Failed to delete recipe');
+  return response.json();
+};
